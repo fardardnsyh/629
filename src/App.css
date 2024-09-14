@@ -1,0 +1,252 @@
+.page-container
+{
+  position: relative;
+  min-height: 100vh !important;
+}
+
+.right-0
+{
+  right: 0;
+}
+.left-0
+{
+  left: 0;
+}
+
+.prayer-times-container
+{
+  width: calc(100vw - 100px);
+}
+.prayer-text
+{
+  text-transform: capitalize;
+}
+.text-shadow
+{
+  text-shadow: 1.5px 1.5px 5px rgba(0, 0, 0, 0.9), 1.5px 1.5px 1px rgba(0, 0, 0, 0.4);
+}
+.prayer-text:not(.active)
+{
+  background: linear-gradient(to right,transparent,rgba(255, 255, 255, 0.2) 25px,rgba(255, 255, 255, 0.2) calc(100% - 25px),transparent);
+  color: white !important;
+}
+.prayer-text.active
+{
+  position: relative;
+  background-color: white;
+  filter: drop-shadow(0 5px 2px rgba(90, 45, 80, 0.5));
+  /* box-shadow: ; */
+}
+
+.prayer-text.active::after, .prayer-text.prayer-text.active::before
+{
+  content: "";
+  position: absolute;
+  width: 55px; height: 100.5%;
+  background-image: url("./assets/img/side.png");
+  background-position: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.prayer-text.prayer-text.active::after
+{
+  right: 100%;
+}
+.prayer-text.prayer-text.active::before
+{
+  left: 100%;
+  scale: -1 1;
+}
+.error-message
+{
+  animation: error-message 0.2s ease-out forwards;
+}
+
+@keyframes error-message {
+  0% {transform: translateX(0);}
+  25% {transform: translateX(0.5rem);}
+  75% {transform: translateX(-0.5rem);}
+  0% {transform: translateX(0);}
+}
+
+.city-button
+{
+  z-index: 1;
+  color: white !important;
+  aspect-ratio: 1;
+  border: none !important;
+  scale: 1;
+  transition: scale 0.2s ease-in-out !important;
+}
+.city-button-icon
+{
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+.city-button:hover
+{
+  scale: 1.2;
+}
+
+.city-button-label
+{
+  background-color: black;
+  pointer-events: none;
+  opacity: 0;
+  top: 100%;
+  position: relative;
+  transition: opacity 0.2s ease-in-out;
+}
+.city-button-label::after
+{
+  content: "";
+  position: absolute;
+  top: -15px; left: 50%; transform: translateX(-50%);
+  height: 15px; width: 15px;
+  border-color: transparent;
+  border-bottom-color: black;
+  border-width: 0 15px 15px 15px;
+  border-style: solid;
+}
+.city-button:hover .city-button-label
+{
+  opacity: 1;
+}
+
+
+.info-container
+{
+  z-index: 2 !important;
+}
+.info-container .info-text
+{
+  bottom: calc(100% + 10px);
+  width: 200px;
+  background-color: black;
+  box-shadow: 0 0 5px white;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  z-index: 2 !important;
+  pointer-events: none;
+}
+.info-container .info-text::after
+{
+  content: "";
+  position: absolute;
+  bottom: -15px; left: 50%; transform: translateX(-50%);
+  height: 15px; width: 15px;
+  filter: drop-shadow(0 0 2px white);
+  border-color: transparent;
+  border-top-color: black;
+  border-width: 15px 15px 0 15px;
+  border-style: solid;
+}
+.info-container .info-button:hover +.info-text
+{
+  opacity: 1;
+}
+
+
+.modal-bg-blur
+{
+  background-color: rgba(35, 5, 25, 0.5) !important;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.2);
+}
+.submit-city-button
+{
+  filter: hue-rotate(100deg) saturate(0.75);
+  box-shadow: inset 0 0 10px rgba(18, 26, 110, 0.75);
+}
+
+.clock-container
+{
+  height: 250px;
+  background: linear-gradient(rgba(0,0,0,0) 50%, rgba(200, 40, 180, 0.1));
+  backdrop-filter: saturate(1.5);
+  aspect-ratio: 1;
+}
+.clock-background
+{
+  height: 150%; aspect-ratio: 1;
+  background-image: url("assets/img/clock.png");
+  background-size: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5))
+}
+.clock-container > div > div, .clock-container > div:last-child
+{
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+}
+.clock-hand-transition
+{
+  transition: rotate 0.2s ease-in-out;
+}
+.hours-hand
+{
+  height: 60px; width: 10px;
+  /* background-color: white; */
+  background-image: url("./assets/img/hour-hand.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  translate: 0 calc(-50% - 5px);
+}
+.minutes-hand
+{
+  height: 100px; width: 13.5px;
+  background-image: url("./assets/img/minute-hand.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  translate: 0 calc(-50% - 2px);
+}
+.seconds-hand
+{
+  height: 90px; width: 1px;
+  background-color: white;
+  translate: 0 calc(-50% - 12px);
+}
+
+.corner-decoration
+{
+  width: min(200px,20vw); aspect-ratio: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("assets/img/corner.png");
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}
+
+.masjid-background
+{
+  width: min(600px,100vw); aspect-ratio: 1;
+  mask-size: contain;
+  mask-image: url("./assets/img/masjid.png");
+  mask-repeat: no-repeat;
+  mask-position: 100% 100%;
+  background: linear-gradient( rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 1) );
+  mix-blend-mode: soft-light;
+}
+
+
+.accordion-header .accordion-button
+{
+  padding: 0.75rem 0;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.accordion-header .accordion-button::after
+{
+  filter: brightness(100);
+}
+
+
+@media (min-width: 768px)
+{
+  .prayer-times-container
+  {
+    width: min(500px,50vw);
+  }
+
+  .clock-container
+  {
+    height: min(250px,25vw);
+  }
+}
+
